@@ -10,9 +10,11 @@ RSpec.describe "Generating a new project" do
       run_arkenstone("-B")
     end
 
-    it "copies the Arkenstone .ruby-version file" do
+    it "creates the .ruby-version file" do
       ruby_version_file = File.join(project_path, ".ruby-version")
+
       expect(File.exist?(ruby_version_file)).to be true
+      expect(File.open(ruby_version_file) { |f| f.read }).to eq(Arkenstone::RUBY_VERSION)
     end
   end
 end

@@ -5,8 +5,11 @@ module Arkenstone
     end
 
     def gemfile
-      say "Customizing Gemfile..."
       template "Gemfile.erb", "Gemfile"
+    end
+
+    def set_ruby_version
+      create_file ".ruby-version", "#{Arkenstone::RUBY_VERSION}\n"
     end
   end
 end

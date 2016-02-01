@@ -15,6 +15,24 @@ module Features
     File.join(Dir.tmpdir, APP_NAME)
   end
 
+  def models_path
+    "#{project_path}/app/models"
+  end
+
+  def controllers_path
+    "#{project_path}/app/controllers"
+  end
+
+  def file_contents(file)
+    File.open(file, &:read)
+  end
+
+  def project_file_exist?(file)
+    Dir.chdir(project_path) do
+      File.exist?(file)
+    end
+  end
+
   private
 
   def root_path

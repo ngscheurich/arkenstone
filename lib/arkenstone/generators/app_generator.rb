@@ -3,13 +3,13 @@ require "rails/generators/rails/app/app_generator"
 
 module Arkenstone
   class AppGenerator < Rails::Generators::AppGenerator
-    def finish_template
-      arkenstone_customization
-      super
-    end
+    class_option :authentication, type: :boolean, aliases: "-A", default: false,
+                 desc: "Create User model and configure authentication"
 
-    def arkenstone_customization
+    def finish_template
       build :set_ruby_version
+      build :authentication if options[:authentication]
+      super
     end
 
     protected

@@ -1,20 +1,16 @@
 require "spec_helper"
 
 RSpec.describe "Generating a new project" do
-  before(:all) do
+  before(:example) do
     remove_dummy_app
+    run_arkenstone("--skip-bundle")
   end
 
-  context "without running `bundle install`" do
-    before(:all) do
-      run_arkenstone("-B")
-    end
+  it "creates a .ruby-version file" do
+    ruby_version_file = File.join(project_path, ".ruby-version")
+    expected_contents = Arkenstone::RUBY_VERSION + "\n"
 
-    it "creates the .ruby-version file" do
-      ruby_version_file = File.join(project_path, ".ruby-version")
-
-      expect(File.exist?(ruby_version_file)).to be true
-      expect(File.open(ruby_version_file) { |f| f.read }).to eq(Arkenstone::RUBY_VERSION)
-    end
+    expect(File.exist?(ruby_version_file)).to be true
+    expect(file_contents(ruby_version_file)).to eq(expected_contents)
   end
 end

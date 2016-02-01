@@ -17,6 +17,10 @@ module Arkenstone
       include_clearance_controller
     end
 
+    def simple_form_install
+      run "rails generate simple_form:install"
+    end
+
     private
 
     def include_clearance_controller

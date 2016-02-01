@@ -12,6 +12,11 @@ module Arkenstone
       super
     end
 
+    def run_after_bundle_callbacks
+      build :simple_form_install
+      super
+    end
+
     protected
 
     def get_builder_class

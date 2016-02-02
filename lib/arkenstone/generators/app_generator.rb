@@ -6,10 +6,15 @@ module Arkenstone
     class_option :authentication, type: :boolean, aliases: "-A", default: false,
                  desc: "Create User model and configure authentication"
 
+    class_option :github, type: :boolean, aliases: "-H", default: false,
+                 desc: "Create a GitHub repository with the same name as the project"
+
     def finish_template
       build :set_ruby_version
       build :authentication if options[:authentication]
       build :simple_form_install
+      build :git_init
+      build :github if options[:github]
       super
     end
 

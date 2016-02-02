@@ -18,10 +18,18 @@ module Arkenstone
     end
 
     def simple_form_install
-      template "config/initializers/simple_form.rb"
-      template "config/locales/simple_form.en.yml"
-      form_path = "lib/templates/html/scaffold/_form.html.erb"
-      create_file form_path, File.read("#{GEM_PATH}/lib/arkenstone/templates/#{form_path}")
+      generate "simple_form:install"
+    end
+
+    def git_init
+      git :init
+      git add: "."
+      git commit: "-m 'Initial commit [via Arkenstone]'"
+    end
+
+    def github
+      `hub create`
+      git push: "origin master"
     end
 
     private

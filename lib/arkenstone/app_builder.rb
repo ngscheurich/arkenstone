@@ -13,12 +13,15 @@ module Arkenstone
     end
 
     def authentication
-      template "user.rb", "app/models/user.rb"
+      template "app/models/user.rb"
       include_clearance_controller
     end
 
     def simple_form_install
-      run "rails generate simple_form:install"
+      template "config/initializers/simple_form.rb"
+      template "config/locales/simple_form.en.yml"
+      form_path = "lib/templates/html/scaffold/_form.html.erb"
+      create_file form_path, File.read("#{GEM_PATH}/lib/arkenstone/templates/#{form_path}")
     end
 
     private

@@ -23,6 +23,14 @@ module Features
     "#{project_path}/app/controllers"
   end
 
+  def config_path
+    "#{project_path}/config"
+  end
+
+  def lib_path
+    "#{project_path}/lib"
+  end
+
   def file_contents(file)
     File.open(file, &:read)
   end

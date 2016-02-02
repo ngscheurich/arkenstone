@@ -9,11 +9,11 @@ module Arkenstone
     def finish_template
       build :set_ruby_version
       build :authentication if options[:authentication]
+      build :simple_form_install
       super
     end
 
     def run_after_bundle_callbacks
-      build :simple_form_install
       super
     end
 

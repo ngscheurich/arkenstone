@@ -34,6 +34,13 @@ RSpec.describe "Generating a new project" do
     expect(layout).to match(/^ +<body class="<%= body_class %>">$/)
   end
 
+  it "creates Docker files" do
+    dockerfile = File.read("#{project_path}/Dockerfile")
+
+    expect(dockerfile).to match(/^FROM ruby:#{Arkenstone::RUBY_VERSION}$/)
+    expect(File).to exist("#{project_path}/docker-compose.yml")
+  end
+
   it "initializes a Git repository" do
     git_opts = "--git-dir=#{project_path}/.git"
     git_opts << " --work-tree=#{project_path}"

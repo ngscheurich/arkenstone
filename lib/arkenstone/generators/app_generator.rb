@@ -23,6 +23,7 @@ module Arkenstone
       build :create_simple_form_files
       build :customize_application_layout
       build :setup_database
+      build :create_docker_files
       build :initialize_git_repo
       build :create_github_repo if options[:github]
     end

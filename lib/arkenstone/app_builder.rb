@@ -41,6 +41,11 @@ module Arkenstone
       bundle_command "exec rake db:create db:migrate"
     end
 
+    def create_docker_files
+      template "Dockerfile.erb", "Dockerfile"
+      copy_file "docker-compose.yml"
+    end
+
     def initialize_git_repo
       git :init
       git add: "."

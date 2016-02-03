@@ -22,7 +22,9 @@ module Arkenstone
     end
 
     def simple_form_install
-      generate "simple_form:install"
+      copy_file "simple_form.rb", "config/initializers/simple_form.rb"
+      copy_file "simple_form.en.yml", "config/locales/simple_form.en.yml"
+      copy_file "_form.html.erb", "lib/templates/html/scaffold/_form.html.erb"
     end
 
     def git_init

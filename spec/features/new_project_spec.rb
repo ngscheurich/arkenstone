@@ -20,10 +20,18 @@ RSpec.describe "Generating a new project" do
     expect(File).to exist("#{project_path}/lib/templates/html/scaffold/_form.html.erb")
   end
 
+  it "sets up the database" do
+    db_config = File.read("#{project_path}/config/database.yml")
+
+    expect(db_config).to match(/^development: &default$/)
+    expect(db_config).to match(/^ +adapter: postgresql$/)
+  end
+
   it "customizes the application layout" do
     layout = File.read("#{project_path}/app/views/layouts/application.html.erb")
-    expect(layout).to match(/<title><%= page_title %><\/title>/)
-    expect(layout).to match(/<body class="<%= body_class %>">/)
+
+    expect(layout).to match(/^ +<title><%= page_title %><\/title>$/)
+    expect(layout).to match(/^ +<body class="<%= body_class %>">$/)
   end
 
   it "initializes a Git repository" do

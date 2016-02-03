@@ -12,7 +12,7 @@ module Arkenstone
       create_file ".ruby-version", "#{Arkenstone::RUBY_VERSION}\n"
     end
 
-    def setup_authentication
+    def set_up_authentication
       template "user.rb", "app/models/user.rb"
       inject_into_file(
         "app/controllers/application_controller.rb",
@@ -27,7 +27,7 @@ module Arkenstone
       copy_file "_form.html.erb", "lib/templates/html/scaffold/_form.html.erb"
     end
 
-    def setup_database
+    def set_up_database
       template "postgresql_database.yml.erb", "config/database.yml",
                force: true
     end
@@ -58,7 +58,7 @@ module Arkenstone
       copy_file "factories.rb", "spec/factories.rb"
     end
 
-    def setup_rspec
+    def set_up_rspec
       bundle_command "exec rails generate rspec:install"
     end
 

@@ -19,16 +19,18 @@ module Arkenstone
 
     def forge_the_arkenstone
       build :set_ruby_version
-      build :setup_authentication if options[:authentication]
+      build :set_up_authentication if options[:authentication]
       build :create_simple_form_files
       build :customize_application_layout
-      build :setup_database
+      build :set_up_database
       build :create_docker_files
       build :config_travis_ci
       build :create_factories_file
       build :create_partials_directory
-      build :setup_rspec
+      build :set_up_rspec
       build :strip_comments
+      build :set_up_style_sheets
+      build :set_up_bitters
       build :initialize_git_repo
       build :create_initial_git_commit
       build :create_github_repo if options[:github]

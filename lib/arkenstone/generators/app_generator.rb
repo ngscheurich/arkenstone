@@ -24,6 +24,7 @@ module Arkenstone
       build :customize_application_layout
       build :setup_database
       build :create_docker_files
+      build :config_travis_ci
       build :initialize_git_repo
       build :create_github_repo if options[:github]
     end

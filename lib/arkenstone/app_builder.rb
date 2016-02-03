@@ -46,6 +46,10 @@ module Arkenstone
       copy_file "docker-compose.yml"
     end
 
+    def config_travis_ci
+      template ".travis.yml.erb", ".travis.yml"
+    end
+
     def initialize_git_repo
       git :init
       git add: "."

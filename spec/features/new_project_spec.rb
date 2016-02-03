@@ -41,6 +41,12 @@ RSpec.describe "Generating a new project" do
     expect(File).to exist("#{project_path}/docker-compose.yml")
   end
 
+  it "configures Travis CI" do
+    travis_config = File.read("#{project_path}/.travis.yml")
+
+    expect(travis_config).to match(/^ +- #{Arkenstone::RUBY_VERSION}/)
+  end
+
   it "initializes a Git repository" do
     git_opts = "--git-dir=#{project_path}/.git"
     git_opts << " --work-tree=#{project_path}"

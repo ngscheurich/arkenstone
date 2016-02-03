@@ -89,8 +89,14 @@ RSpec.describe "Generating a new project" do
     expect(rails_helper).to include("config.include Features, type: :feature")
   end
 
-  it "strips comments" do
-    result = `grep '^ *#[^!]' -l -r --exclude-dir=.git #{project_path}`
+  it "sets up Database Cleaner" do
+    database_cleaner_file = "#{project_path}/spec/support/database_cleaner.rb"
+
+    expect(File).to exist(database_cleaner_file)
+  end
+
+  it "strips comments from Ruby files" do
+    result = `grep '^ *#[^!]' -l -r --include=*.rb #{project_path}`
 
     expect(result).to eq("")
   end
@@ -106,6 +112,10 @@ RSpec.describe "Generating a new project" do
   it "sets up Bitters" do
     bitters_dir = "#{project_path}/app/assets/stylesheets/base/_base.scss"
     expect(File).to exist(bitters_dir)
+  end
+
+  it "sets up Database Cleaner" do
+
   end
 
   it "initializes a Git repository" do

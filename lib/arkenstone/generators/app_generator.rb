@@ -29,7 +29,8 @@ module Arkenstone
       build :create_partials_directory
       build :set_up_rspec
       build :customize_rails_helper
-      build :strip_comments
+      build :set_up_database_cleaner
+      build :strip_comments_from_ruby_files
       build :set_up_style_sheets
       build :set_up_bitters
       build :initialize_git_repo

@@ -67,8 +67,12 @@ module Arkenstone
       copy_file "rails_helper.rb", "spec/rails_helper.rb"
     end
 
-    def strip_comments
-      files = `grep '^ *#[^!]' -l -r --exclude-dir=.git .`.split("\n")
+    def set_up_database_cleaner
+      copy_file "database_cleaner.rb", "spec/support/database_cleaner.rb"
+    end
+
+    def strip_comments_from_ruby_files
+      files = `grep '^ *#[^!]' -l -r --include=*.rb .`.split("\n")
 
       files.each do |file|
         gsub_file file, /^ *#.*\n/, ""

@@ -25,6 +25,8 @@ RSpec.describe "Generating a new project" do
   end
 
   it "automatically adds all files to local Git repo and makes an initial commit" do
+    `git config user.email "test@ci.org"`
+    `git config user.name "CI Tester"`
     git_opts = "--git-dir=#{project_path}/.git"
     git_opts << " --work-tree=#{project_path}"
 

@@ -51,6 +51,6 @@ RSpec.describe "Generating a new project" do
     git_opts = "--git-dir=#{project_path}/.git"
     git_opts << " --work-tree=#{project_path}"
 
-    expect(`git #{git_opts} log -1`).to match(/Initial commit/)
-  end
+    expect(`git #{git_opts} log -1`).to include("Initial commit")
+    end
 end

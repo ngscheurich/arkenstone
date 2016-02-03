@@ -7,58 +7,79 @@ RSpec.describe "Generating a new project" do
   end
 
   it "sets the Ruby version" do
-    ruby_version_file = File.join(project_path, ".ruby-version")
-    expected_contents = Arkenstone::RUBY_VERSION + "\n"
+    ruby_version_file = File.read("#{project_path}/.ruby-version")
+    ruby_version_regexp = /^#{Arkenstone::RUBY_VERSION}\n/
 
-    expect(File).to exist(ruby_version_file)
-    expect(file_contents(ruby_version_file)).to eq(expected_contents)
+    expect(ruby_version_file).to match(ruby_version_regexp)
   end
 
   it "creates Simple Form files" do
-    expect(File).to exist("#{project_path}/config/initializers/simple_form.rb")
-    expect(File).to exist("#{project_path}/config/locales/simple_form.en.yml")
-    expect(File).to exist("#{project_path}/lib/templates/html/scaffold/_form.html.erb")
+    simple_form_initializer = "#{project_path}/config/initializers/simple_form.rb"
+    simple_form_locale = "#{project_path}/config/locales/simple_form.en.yml"
+    simple_form_partial = "#{project_path}/lib/templates/html/scaffold/_form.html.erb"
+
+    expect(File).to exist(simple_form_initializer)
+    expect(File).to exist(simple_form_locale)
+    expect(File).to exist(simple_form_partial)
   end
 
   it "sets up the database" do
     db_config = File.read("#{project_path}/config/database.yml")
+    db_config_regexps = [
+      /^development: &default$/,
+      /^ +adapter: postgresql$/
+    ]
 
-    expect(db_config).to match(/^development: &default$/)
-    expect(db_config).to match(/^ +adapter: postgresql$/)
+    db_config_regexps.each do |regexp|
+      expect(db_config).to match(regexp)
+    end
   end
 
   it "customizes the application layout" do
     layout = File.read("#{project_path}/app/views/layouts/application.html.erb")
+    layout_regexps = [
+      /^ +<title><%= page_title %><\/title>$/,
+      /^ +<body class="<%= body_class %>">$/
+    ]
 
-    expect(layout).to match(/^ +<title><%= page_title %><\/title>$/)
-    expect(layout).to match(/^ +<body class="<%= body_class %>">$/)
+    layout_regexps.each do |regexp|
+      expect(layout).to match(regexp)
+    end
   end
 
   it "creates Docker files" do
     dockerfile = File.read("#{project_path}/Dockerfile")
+    dockerfile_regexp = /^FROM ruby:#{Arkenstone::RUBY_VERSION}$/
+    docker_compose_config = "#{project_path}/docker-compose.yml"
 
-    expect(dockerfile).to match(/^FROM ruby:#{Arkenstone::RUBY_VERSION}$/)
-    expect(File).to exist("#{project_path}/docker-compose.yml")
+    expect(dockerfile).to match(dockerfile_regexp)
+    expect(File).to exist(docker_compose_config)
   end
 
   it "configures Travis CI" do
     travis_config = File.read("#{project_path}/.travis.yml")
+    travis_config_regexp = /^ +- #{Arkenstone::RUBY_VERSION}/
 
-    expect(travis_config).to match(/^ +- #{Arkenstone::RUBY_VERSION}/)
+    expect(travis_config).to match(travis_config_regexp)
   end
 
   it "create the partials directory" do
-    expect(File).to exist("#{project_path}/app/views/application")
+    partials_dir = "#{project_path}/app/views/application"
+
+    expect(File).to exist(partials_dir)
   end
 
   it "sets up Rspec" do
-    expect(File).to exist("#{project_path}/spec")
+    spec_dir = "#{project_path}/spec"
+
+    expect(File).to exist(spec_dir)
   end
 
   it "initializes a Git repository" do
     git_opts = "--git-dir=#{project_path}/.git"
     git_opts << " --work-tree=#{project_path}"
+    git_log = `git #{git_opts} log -1`
 
-    expect(`git #{git_opts} log -1`).to include("Initial commit")
-    end
+    expect(git_log).to include("Initial commit")
+  end
 end

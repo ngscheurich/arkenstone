@@ -3,6 +3,3 @@ rvm:
   - 2.2.3
 before_install: gem install bundler -v 1.10.6
 before_script: git config --global user.email "travis@travis-ci.org" && git config --global user.name "Travis CI"
-addons:
-  code_climate:
-    repo_token: 0f3b595671d5097fc3efa72adf6bede9aa4995aed4d4f38ac5ee6bc30bcbdbe2

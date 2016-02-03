@@ -13,7 +13,7 @@ module Arkenstone
     end
 
     def authentication
-      template "app/models/user.rb"
+      template "user.rb", "app/models/user.rb"
       include_clearance_controller
     end
 

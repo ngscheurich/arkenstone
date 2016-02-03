@@ -13,7 +13,8 @@ module Arkenstone
   end
 end
 
-templates_root = File.expand_path(File.join("..", "lib/arkenstone/templates"), File.dirname(__FILE__))
+templates_relative = File.join("..", "lib/arkenstone/templates")
+templates_root = File.expand_path(templates_relative, File.dirname(__FILE__))
 Arkenstone::AppGenerator.source_root templates_root
 Arkenstone::AppGenerator.source_paths << Rails::Generators::AppGenerator.source_root
 Arkenstone::AppGenerator.source_paths << templates_root

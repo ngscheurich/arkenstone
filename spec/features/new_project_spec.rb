@@ -76,6 +76,12 @@ RSpec.describe "Generating a new project" do
   end
 
   it "initializes a Git repository" do
+    git_dir = "#{project_path}/.git"
+
+    expect(File).to exist(git_dir)
+  end
+
+  it "creates an initial Git commit" do
     git_opts = "--git-dir=#{project_path}/.git"
     git_opts << " --work-tree=#{project_path}"
     git_log = `git #{git_opts} log -1`

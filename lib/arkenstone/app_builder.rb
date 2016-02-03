@@ -65,6 +65,9 @@ module Arkenstone
 
     def initialize_git_repo
       git :init
+    end
+
+    def create_initial_git_commit
       git add: "."
       git commit: "-m 'Initial commit [via Arkenstone]'"
     end

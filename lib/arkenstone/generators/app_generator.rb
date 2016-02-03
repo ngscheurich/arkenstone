@@ -28,6 +28,7 @@ module Arkenstone
       build :create_partials_directory
       build :setup_rspec
       build :initialize_git_repo
+      build :create_initial_git_commit
       build :create_github_repo if options[:github]
     end
 

@@ -14,7 +14,11 @@ module Arkenstone
 
     def authentication
       template "user.rb", "app/models/user.rb"
-      include_clearance_controller
+      inject_into_file(
+        "app/controllers/application_controller.rb",
+        "  include Clearance::Controller\n\n",
+        after: "class ApplicationController < ActionController::Base"
+      )
     end
 
     def simple_form_install
@@ -30,18 +34,6 @@ module Arkenstone
     def github
       `hub create`
       git push: "origin master"
-    end
-
-    private
-
-    def include_clearance_controller
-      path = "app/controllers/application_controller.rb"
-      contents = []
-      File.open(path) { |f| contents = f.readlines }
-      File.open(path, "w+") do |file|
-        contents.insert(1, "  include Clearance::Controller\n\n")
-        file.write(contents.join)
-      end
     end
   end
 end

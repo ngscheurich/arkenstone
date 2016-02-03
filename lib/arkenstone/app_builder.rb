@@ -62,6 +62,14 @@ module Arkenstone
       bundle_command "exec rails generate rspec:install"
     end
 
+    def strip_comments
+      files = `grep '^ *#[^!]' -l -r --exclude-dir=.git .`.split("\n")
+
+      files.each do |file|
+        gsub_file file, /^ *#.*\n/, ""
+      end
+    end
+
     def initialize_git_repo
       git :init
     end

@@ -81,6 +81,12 @@ RSpec.describe "Generating a new project" do
     expect(File).to exist(spec_dir)
   end
 
+  it "strips comments" do
+    result = `grep '^ *#[^!]' -l -r --exclude-dir=.git #{project_path}`
+
+    expect(result).to eq("")
+  end
+
   it "initializes a Git repository" do
     git_dir = "#{project_path}/.git"
 

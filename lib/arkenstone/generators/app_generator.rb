@@ -6,20 +6,24 @@ module Arkenstone
     class_option :authentication, type: :boolean, aliases: "-A", default: false,
                  desc: "Create User model and configure authentication"
 
+    class_option :database, type: :string, aliases: "-d", default: "postgresql",
+                 desc: "Configure for selected database (options: #{DATABASES.join("/")})"
+
     class_option :github, type: :boolean, aliases: "-H", default: false,
                  desc: "Create a GitHub repository with the same name as the project"
 
     def finish_template
-      build :set_ruby_version
-      build :authentication if options[:authentication]
-      build :simple_form_install
-      build :git_init
-      build :github if options[:github]
+      invoke :forge_the_arkenstone
       super
     end
 
-    def run_after_bundle_callbacks
-      super
+    def forge_the_arkenstone
+      build :set_ruby_version
+      build :setup_authentication if options[:authentication]
+      build :create_simple_form_files
+      build :setup_database
+      build :initialize_git_repo
+      build :create_github_repo if options[:github]
     end
 
     protected

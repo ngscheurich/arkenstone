@@ -6,7 +6,7 @@ RSpec.describe "Generating a new project" do
     run_arkenstone("--skip-bundle")
   end
 
-  it "creates a .ruby-version file" do
+  it "sets the Ruby version" do
     ruby_version_file = File.join(project_path, ".ruby-version")
     expected_contents = Arkenstone::RUBY_VERSION + "\n"
 
@@ -14,7 +14,7 @@ RSpec.describe "Generating a new project" do
     expect(file_contents(ruby_version_file)).to eq(expected_contents)
   end
 
-  it "installs Simple Form" do
+  it "creates Simple Form files" do
     simple_form_initializer = File.join(config_path, "/initializers/simple_form.rb")
     simple_form_locale = File.join(config_path, "/locales/simple_form.en.yml")
     simple_form_partial = File.join(lib_path, "/templates/html/scaffold/_form.html.erb")
@@ -24,7 +24,7 @@ RSpec.describe "Generating a new project" do
     expect(File.exist?(simple_form_partial)).to be true
   end
 
-  it "automatically adds all files to local Git repo and makes an initial commit" do
+  it "initializes a Git repository" do
     git_opts = "--git-dir=#{project_path}/.git"
     git_opts << " --work-tree=#{project_path}"
 

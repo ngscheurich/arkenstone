@@ -32,6 +32,11 @@ module Arkenstone
                force: true
     end
 
+    def customize_application_layout
+      template "application.html.erb", "app/views/layouts/application.html.erb",
+               force: true
+    end
+
     def create_database
       bundle_command "exec rake db:create db:migrate"
     end

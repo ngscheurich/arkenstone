@@ -21,6 +21,7 @@ module Arkenstone
       build :set_ruby_version
       build :setup_authentication if options[:authentication]
       build :create_simple_form_files
+      build :customize_application_layout
       build :setup_database
       build :initialize_git_repo
       build :create_github_repo if options[:github]

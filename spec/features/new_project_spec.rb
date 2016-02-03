@@ -10,18 +10,20 @@ RSpec.describe "Generating a new project" do
     ruby_version_file = File.join(project_path, ".ruby-version")
     expected_contents = Arkenstone::RUBY_VERSION + "\n"
 
-    expect(File.exist?(ruby_version_file)).to be true
+    expect(File).to exist(ruby_version_file)
     expect(file_contents(ruby_version_file)).to eq(expected_contents)
   end
 
   it "creates Simple Form files" do
-    simple_form_initializer = File.join(config_path, "/initializers/simple_form.rb")
-    simple_form_locale = File.join(config_path, "/locales/simple_form.en.yml")
-    simple_form_partial = File.join(lib_path, "/templates/html/scaffold/_form.html.erb")
+    expect(File).to exist("#{project_path}/config/initializers/simple_form.rb")
+    expect(File).to exist("#{project_path}/config/locales/simple_form.en.yml")
+    expect(File).to exist("#{project_path}/lib/templates/html/scaffold/_form.html.erb")
+  end
 
-    expect(File.exist?(simple_form_initializer)).to be true
-    expect(File.exist?(simple_form_locale)).to be true
-    expect(File.exist?(simple_form_partial)).to be true
+  it "customizes the application layout" do
+    layout = File.read("#{project_path}/app/views/layouts/application.html.erb")
+    expect(layout).to match(/<title><%= page_title %><\/title>/)
+    expect(layout).to match(/<body class="<%= body_class %>">/)
   end
 
   it "initializes a Git repository" do

@@ -70,6 +70,16 @@ module Arkenstone
       end
     end
 
+    def set_up_style_sheets
+      remove_file "app/assets/stylesheets/application.css"
+      copy_file "application.scss",
+                "app/assets/stylesheets/application.scss"
+    end
+
+    def set_up_bitters
+      run "bitters install --path app/assets/stylesheets"
+    end
+
     def initialize_git_repo
       git :init
     end

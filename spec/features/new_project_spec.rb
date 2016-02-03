@@ -87,6 +87,19 @@ RSpec.describe "Generating a new project" do
     expect(result).to eq("")
   end
 
+  it "sets up style sheets" do
+    application_css = "#{project_path}/app/assets/stylesheets/application.css"
+    application_scss = "#{project_path}/app/assets/stylesheets/application.scss"
+
+    expect(File).to_not exist(application_css)
+    expect(File).to exist(application_scss)
+  end
+
+  it "sets up Bitters" do
+    bitters_dir = "#{project_path}/app/assets/stylesheets/base/_base.scss"
+    expect(File).to exist(bitters_dir)
+  end
+
   it "initializes a Git repository" do
     git_dir = "#{project_path}/.git"
 

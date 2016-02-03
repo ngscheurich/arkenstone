@@ -81,6 +81,14 @@ RSpec.describe "Generating a new project" do
     expect(File).to exist(spec_dir)
   end
 
+  it "customizes rails_helper.rb" do
+    rails_helper = File.read("#{project_path}/spec/rails_helper.rb")
+
+    expect(rails_helper).to include('Rails.root.join("spec/support/**/*.rb")')
+    expect(rails_helper).to include("config.use_transactional_fixtures = false")
+    expect(rails_helper).to include("config.include Features, type: :feature")
+  end
+
   it "strips comments" do
     result = `grep '^ *#[^!]' -l -r --exclude-dir=.git #{project_path}`
 

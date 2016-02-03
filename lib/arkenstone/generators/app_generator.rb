@@ -28,6 +28,7 @@ module Arkenstone
       build :create_factories_file
       build :create_partials_directory
       build :set_up_rspec
+      build :customize_rails_helper
       build :strip_comments
       build :set_up_style_sheets
       build :set_up_bitters

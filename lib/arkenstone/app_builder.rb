@@ -62,6 +62,11 @@ module Arkenstone
       bundle_command "exec rails generate rspec:install"
     end
 
+    def customize_rails_helper
+      remove_file "spec/rails_helper.rb"
+      copy_file "rails_helper.rb", "spec/rails_helper.rb"
+    end
+
     def strip_comments
       files = `grep '^ *#[^!]' -l -r --exclude-dir=.git .`.split("\n")
 

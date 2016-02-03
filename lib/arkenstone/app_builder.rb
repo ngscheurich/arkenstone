@@ -50,6 +50,19 @@ module Arkenstone
       template ".travis.yml.erb", ".travis.yml"
     end
 
+    def create_partials_directory
+      empty_directory "app/views/application"
+    end
+
+    def setup_factory_girl
+      copy_file "factory_girl_rspec.rb", "spec/support/factory_girl.rb"
+      copy_file "factories.rb", "spec/factories.rb"
+    end
+
+    def setup_rspec
+      bundle_command "exec rails generate rspec:install"
+    end
+
     def initialize_git_repo
       git :init
       git add: "."

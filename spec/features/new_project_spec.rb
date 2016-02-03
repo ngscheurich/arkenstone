@@ -47,6 +47,14 @@ RSpec.describe "Generating a new project" do
     expect(travis_config).to match(/^ +- #{Arkenstone::RUBY_VERSION}/)
   end
 
+  it "create the partials directory" do
+    expect(File).to exist("#{project_path}/app/views/application")
+  end
+
+  it "sets up Rspec" do
+    expect(File).to exist("#{project_path}/spec")
+  end
+
   it "initializes a Git repository" do
     git_opts = "--git-dir=#{project_path}/.git"
     git_opts << " --work-tree=#{project_path}"

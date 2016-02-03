@@ -54,8 +54,7 @@ module Arkenstone
       empty_directory "app/views/application"
     end
 
-    def setup_factory_girl
-      copy_file "factory_girl_rspec.rb", "spec/support/factory_girl.rb"
+    def create_factories_file
       copy_file "factories.rb", "spec/factories.rb"
     end
 

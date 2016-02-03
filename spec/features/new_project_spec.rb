@@ -63,7 +63,13 @@ RSpec.describe "Generating a new project" do
     expect(travis_config).to match(travis_config_regexp)
   end
 
-  it "create the partials directory" do
+  it "creates the factories file" do
+    factories_file = "#{project_path}/spec/factories.rb"
+
+    expect(File).to exist(factories_file)
+  end
+
+  it "creates the partials directory" do
     partials_dir = "#{project_path}/app/views/application"
 
     expect(File).to exist(partials_dir)

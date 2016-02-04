@@ -27,12 +27,14 @@ module Arkenstone
       build :config_travis_ci
       build :create_factories_file
       build :create_partials_directory
+      build :create_flashes_partial
       build :set_up_rspec
       build :customize_rails_helper
       build :set_up_database_cleaner
       build :strip_comments_from_ruby_files
       build :set_up_style_sheets
       build :set_up_bitters
+      build :configure_locale
       build :initialize_git_repo
       build :create_initial_git_commit
       build :create_github_repo if options[:github]

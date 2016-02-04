@@ -54,6 +54,10 @@ module Arkenstone
       empty_directory "app/views/application"
     end
 
+    def create_flashes_partial
+      copy_file "_flashes.html.erb", "app/views/application/_flashes.html.erb"
+    end
+
     def create_factories_file
       copy_file "factories.rb", "spec/factories.rb"
     end

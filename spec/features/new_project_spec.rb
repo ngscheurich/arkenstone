@@ -6,7 +6,7 @@ RSpec.describe "Generating a new project" do
     run_arkenstone("--skip-bundle")
   end
 
-  it "sets the Ruby version" do
+  it "sets Ruby version" do
     ruby_version_file = File.read("#{project_path}/.ruby-version")
     ruby_version_regexp = /^#{Arkenstone::RUBY_VERSION}\n/
 
@@ -35,7 +35,7 @@ RSpec.describe "Generating a new project" do
     end
   end
 
-  it "customizes the application layout" do
+  it "customizes application layout" do
     layout = File.read("#{project_path}/app/views/layouts/application.html.erb")
     layout_regexps = [
       /^ +<title><%= page_title %><\/title>$/,
@@ -63,19 +63,25 @@ RSpec.describe "Generating a new project" do
     expect(travis_config).to match(travis_config_regexp)
   end
 
-  it "creates the factories file" do
+  it "creates factories file" do
     factories_file = "#{project_path}/spec/factories.rb"
 
     expect(File).to exist(factories_file)
   end
 
-  it "creates the partials directory" do
+  it "creates partials directory" do
     partials_dir = "#{project_path}/app/views/application"
 
     expect(File).to exist(partials_dir)
   end
 
-  it "sets up Rspec" do
+  it "creates flashes partial" do
+    flashes = "#{project_path}/app/views/application/_flashes.html.erb"
+
+    expect(File).to exist(flashes)
+  end
+
+  it "sets up RSpec" do
     spec_dir = "#{project_path}/spec"
 
     expect(File).to exist(spec_dir)
@@ -114,8 +120,10 @@ RSpec.describe "Generating a new project" do
     expect(File).to exist(bitters_dir)
   end
 
-  it "sets up Database Cleaner" do
+  it "configures locale" do
+    en_locale = File.read("#{project_path}/config/locales/en.yml")
 
+    expect(en_locale).to include("application: Arkenstone Test")
   end
 
   it "initializes a Git repository" do

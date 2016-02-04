@@ -1,5 +1,5 @@
 module Features
-  APP_NAME = "arkenstone_dummy"
+  APP_NAME = "arkenstone_test"
 
   def run_arkenstone(args = nil)
     Dir.chdir(Dir.tmpdir) do

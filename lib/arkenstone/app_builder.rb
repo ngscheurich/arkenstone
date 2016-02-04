@@ -93,6 +93,11 @@ module Arkenstone
       run "bitters install --path app/assets/stylesheets"
     end
 
+    def configure_locale
+      template "en.yml.erb", "config/locales/en.yml",
+               force: true
+    end
+
     def initialize_git_repo
       git :init
     end

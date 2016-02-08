@@ -1,5 +1,0 @@
-app:
-  build: .
-  command: rake
-  volumes:
-    - .:/app

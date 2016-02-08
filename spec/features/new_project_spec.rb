@@ -42,15 +42,6 @@ RSpec.describe "Generating a new project" do
     end
   end
 
-  it "creates Docker files" do
-    dockerfile = File.read("#{project_path}/Dockerfile")
-    dockerfile_regexp = /^FROM ruby:#{Arkenstone::RUBY_VERSION}$/
-    docker_compose_config = "#{project_path}/docker-compose.yml"
-
-    expect(dockerfile).to match(dockerfile_regexp)
-    expect(File).to exist(docker_compose_config)
-  end
-
   it "configures Travis CI" do
     travis_config = File.read("#{project_path}/.travis.yml")
     travis_config_regexp = /^ +- #{Arkenstone::RUBY_VERSION}/

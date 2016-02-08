@@ -23,7 +23,6 @@ module Arkenstone
       build :create_simple_form_files
       build :customize_application_layout
       build :set_up_database
-      build :create_docker_files
       build :config_travis_ci
       build :create_factories_file
       build :create_partials_directory

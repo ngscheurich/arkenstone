@@ -102,6 +102,12 @@ module Arkenstone
       template "home.html.erb", "app/views/pages/home.html.erb"
       copy_file "high_voltage.rb", "config/initializers/high_voltage.rb"
     end
+    
+    def create_binstubs
+      copy_file "rails", "bin/rails", force: true
+      copy_file "rake", "bin/rake", force: true
+      copy_file "spring", "bin/spring"
+    end
 
     def initialize_git_repo
       git :init

@@ -3,6 +3,12 @@ require "rails/generators/rails/app/app_generator"
 
 module Arkenstone
   class AppGenerator < Rails::Generators::AppGenerator
+    class_option :skip_test, type: :boolean, aliases: "-T", default: true,
+                 desc: "Skip test files"
+
+    class_option :skip_spring, type: :boolean, default: true,
+                 desc: "Don't install Spring application preloader"
+
     class_option :authentication, type: :boolean, aliases: "-A", default: false,
                  desc: "Create User model and configure authentication"
 

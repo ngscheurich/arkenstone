@@ -1,6 +1,10 @@
 module Features
   APP_NAME = "arkenstone_test"
 
+  def app_name
+    APP_NAME
+  end
+  
   def run_arkenstone(args = nil)
     Dir.chdir(Dir.tmpdir) do
       `#{arkenstone_bin} #{args} #{project_path}`

@@ -1,10 +1,11 @@
-development: &default
+default: &default
   adapter: postgresql
-  database: <%= app_name %>_development
   encoding: unicode
   pool: 5
-  username: postgres
-  host: db
+
+development:
+  <<: *default
+  database: <%= app_name %>_development
 
 test:
   <<: *default

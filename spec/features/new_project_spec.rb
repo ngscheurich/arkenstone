@@ -25,14 +25,9 @@ RSpec.describe "Generating a new project" do
 
   it "sets up the database" do
     db_config = File.read("#{project_path}/config/database.yml")
-    db_config_regexps = [
-      /^development: &default$/,
-      /^ +adapter: postgresql$/
-    ]
 
-    db_config_regexps.each do |regexp|
-      expect(db_config).to match(regexp)
-    end
+    expect(db_config).to include("adapter: postgresql")
+    expect(db_config).to include("database: #{app_name}_development")
   end
 
   it "customizes application layout" do
@@ -124,6 +119,14 @@ RSpec.describe "Generating a new project" do
     en_locale = File.read("#{project_path}/config/locales/en.yml")
 
     expect(en_locale).to include("application: Arkenstone Test")
+  end
+
+  it "sets home page as root path" do
+    home_page = "#{project_path}/app/views/pages/home.html.erb"
+    high_voltage_initializer = File.read("#{project_path}/config/initializers/high_voltage.rb")
+
+    expect(File).to exist(home_page)
+    expect(high_voltage_initializer).to include('config.home_page = "home"')
   end
 
   it "initializes a Git repository" do

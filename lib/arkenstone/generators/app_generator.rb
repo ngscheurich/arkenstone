@@ -35,6 +35,7 @@ module Arkenstone
       build :set_up_style_sheets
       build :set_up_bitters
       build :configure_locale
+      build :create_home_page
       build :initialize_git_repo
       build :create_initial_git_commit
       build :create_github_repo if options[:github]

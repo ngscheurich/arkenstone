@@ -28,7 +28,7 @@ module Arkenstone
     end
 
     def set_up_database
-      template "postgresql_database.yml.erb", "config/database.yml",
+      template "database.yml.erb", "config/database.yml",
                force: true
     end
 
@@ -96,6 +96,11 @@ module Arkenstone
     def configure_locale
       template "en.yml.erb", "config/locales/en.yml",
                force: true
+    end
+
+    def create_home_page
+      template "home.html.erb", "app/views/pages/home.html.erb"
+      copy_file "high_voltage.rb", "config/initializers/high_voltage.rb"
     end
 
     def initialize_git_repo

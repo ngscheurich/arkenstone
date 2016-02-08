@@ -37,15 +37,6 @@ module Arkenstone
                force: true
     end
 
-    def create_database
-      bundle_command "exec rake db:create db:migrate"
-    end
-
-    def create_docker_files
-      template "Dockerfile.erb", "Dockerfile"
-      copy_file "docker-compose.yml"
-    end
-
     def config_travis_ci
       template ".travis.yml.erb", ".travis.yml"
     end

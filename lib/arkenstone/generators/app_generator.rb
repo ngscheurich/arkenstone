@@ -36,7 +36,7 @@ module Arkenstone
       build :set_up_rspec
       build :customize_rails_helper
       build :set_up_database_cleaner
-      build :strip_comments_from_ruby_files
+      build :clean_up_ruby_files
       build :set_up_style_sheets
       build :set_up_bitters
       build :configure_locale

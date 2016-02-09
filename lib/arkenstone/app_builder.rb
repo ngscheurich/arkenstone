@@ -66,11 +66,12 @@ module Arkenstone
       copy_file "database_cleaner.rb", "spec/support/database_cleaner.rb"
     end
 
-    def strip_comments_from_ruby_files
+    def clean_up_ruby_files
       files = `grep '^ *#[^!]' -l -r --include=*.rb .`.split("\n")
 
       files.each do |file|
         gsub_file file, /^ *#.*\n/, ""
+        gsub_file file, /\n$/, ""
       end
     end
 

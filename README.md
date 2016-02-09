@@ -3,37 +3,39 @@
 [![Build Status](https://travis-ci.org/ngscheurich/arkenstone.svg?branch=master)](https://travis-ci.org/ngscheurich/arkenstone)
 [![Code Climate](https://codeclimate.com/github/ngscheurich/arkenstone/badges/gpa.svg)](https://codeclimate.com/github/ngscheurich/arkenstone)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/arkenstone`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The Arkenstone is a Ruby on Rails application generator set up to use my
+preferred development configuration. It is heavily influenced by thoughtbot’s
+Suspenders; I simply prefer to have something that I’ve pruned from infancy
+and just totally *get*, you know?
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application’s Gemfile:
 
 ```ruby
-gem 'arkenstone'
+gem "arkenstone"
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or install it yourself with:
 
     $ gem install arkenstone
 
 ## Usage
 
-TODO: Write usage instructions here
+The Arkenstone provides you with the command line application `arkenstone`,
+which behaves essentially like `rails new`. To create a Rails app with
+The Arkenstone, simply:
 
-## Development
+	$ arkenstone path/to/app
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Check out the `--help` option to see the available configuration options.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+---
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/arkenstone. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
+[(ↄ) Copyleft](http://www.gnu.org/licenses/copyleft.en.html)
+Nicholas Gunther Scheurich under the
+[GNU General Public License](http://www.gnu.org/licenses/gpl.txt)

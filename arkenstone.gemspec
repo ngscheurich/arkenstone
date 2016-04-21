@@ -24,13 +24,11 @@ and just totally *get*, you know?
   spec.executables   = ["arkenstone"]
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "rails", "~>4.2", ">=4.2.0"
-
-  spec.add_development_dependency "autoprefixer-rails"
   spec.add_development_dependency "bitters", "~> 0.1"
   spec.add_development_dependency "bundler", "~> 1.0"
   spec.add_development_dependency "codecov"
   spec.add_development_dependency "pry", "~> 0.1"
+  spec.add_development_dependency "rails", "~>4.2", ">=4.2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.4"
   spec.add_development_dependency "rspec_junit_formatter", "0.2.2"

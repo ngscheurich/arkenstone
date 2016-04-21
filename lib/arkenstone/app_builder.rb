@@ -49,8 +49,8 @@ module Arkenstone
       copy_file "_flashes.html.erb", "app/views/application/_flashes.html.erb"
     end
 
-    def create_factories_file
-      copy_file "factories.rb", "spec/factories.rb"
+    def create_factories_directory
+      empty_directory "spec/factories"
     end
 
     def set_up_rspec

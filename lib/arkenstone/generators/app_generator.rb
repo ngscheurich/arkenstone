@@ -27,7 +27,7 @@ module Arkenstone
       build :customize_application_layout
       build :set_up_database
       build :config_ci
-      build :create_factories_file
+      build :create_factories_directory
       build :create_partials_directory
       build :create_flashes_partial
       build :set_up_rspec

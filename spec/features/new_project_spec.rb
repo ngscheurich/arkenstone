@@ -48,10 +48,10 @@ RSpec.describe "Generating a new project" do
     expect(File).to exist(circleci_config)
   end
 
-  it "creates factories file" do
-    factories_file = "#{project_path}/spec/factories.rb"
+  it "creates factories directory" do
+    factories_dir = "#{project_path}/spec/factories"
 
-    expect(File).to exist(factories_file)
+    expect(File).to exist(factories_dir)
   end
 
   it "creates partials directory" do

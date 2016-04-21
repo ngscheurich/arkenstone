@@ -132,4 +132,16 @@ RSpec.describe "Generating a new project" do
 
     expect(git_log).to include("Initial commit")
   end
+
+  it "creates a Vagrantfile" do
+    vagrantfile = "#{project_path}/Vagrantfile"
+
+    expect(File).to exist(vagrantfile)
+  end
+
+  it "installs Ansible playbook" do
+    ansible_dir = "#{project_path}/ansible"
+
+    expect(File).to exist(ansible_dir)
+  end
 end

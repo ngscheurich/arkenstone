@@ -14,8 +14,7 @@ Gem::Specification.new do |spec|
   spec.description   = <<-EOS
 The Arkenstone is a Ruby on Rails application generator set up to use my
 preferred development configuration. It is heavily influenced by thoughtbot’s
-Suspenders; I simply prefer to have something that I’ve pruned from infancy
-and just totally *get*, you know?
+Suspenders.
   EOS
   spec.homepage      = "https://github.com/ngscheurich/arkenstone"
 

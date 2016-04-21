@@ -39,6 +39,8 @@ module Arkenstone
       build :configure_locale
       build :create_home_page
       build :create_binstubs
+      build :create_vagrantfile
+      build :add_ansible
       build :initialize_git_repo
       build :create_initial_git_commit
       build :create_github_repo if options[:github]

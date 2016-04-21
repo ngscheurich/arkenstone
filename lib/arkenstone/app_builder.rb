@@ -101,6 +101,14 @@ module Arkenstone
       copy_file "spring", "bin/spring"
     end
 
+    def create_vagrantfile
+      template "Vagrantfile.erb", "Vagrantfile"
+    end
+
+    def add_ansible
+      git clone: "https://github.com/ngscheurich/ansible-rails.git ansible"
+    end
+
     def initialize_git_repo
       git :init
     end

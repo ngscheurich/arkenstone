@@ -1,6 +1,8 @@
 dependencies:
   override:
     - bin/setup
+    - git config --global user.email "test@circleci.com"
+    - git config --global user.name "CircleCI"
 
 test:
   override:

@@ -1,7 +1,7 @@
 # Arkenstone
 
-[![Build Status](https://travis-ci.org/ngscheurich/arkenstone.svg?branch=master)](https://travis-ci.org/ngscheurich/arkenstone)
-[![Code Climate](https://codeclimate.com/github/ngscheurich/arkenstone/badges/gpa.svg)](https://codeclimate.com/github/ngscheurich/arkenstone)
+[![Build Status](https://circleci.com/gh/ngscheurich/arkenstone.svg?&style=shield)](https://circleci.com/gh/ngscheurich/arkenstone)
+[![Code Coverage](https://codecov.io/github/ngscheurich/arkenstone/coverage.svg?branch=master)](https://codecov.io/github/ngscheurich/arkenstone?branch=master)
 
 The Arkenstone is a Ruby on Rails application generator set up to use my
 preferred development configuration. It is heavily influenced by thoughtbot’s

@@ -42,11 +42,10 @@ RSpec.describe "Generating a new project" do
     end
   end
 
-  it "configures Travis CI" do
-    travis_config = File.read("#{project_path}/.travis.yml")
-    travis_config_regexp = /^ +- #{Arkenstone::RUBY_VERSION}/
+  it "configures CircleCI" do
+    circleci_config = "#{project_path}/circle.yml"
 
-    expect(travis_config).to match(travis_config_regexp)
+    expect(File).to exist(circleci_config)
   end
 
   it "creates factories file" do

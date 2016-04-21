@@ -6,14 +6,11 @@ module Arkenstone
     class_option :skip_test, type: :boolean, aliases: "-T", default: true,
                  desc: "Skip test files"
 
-    class_option :skip_spring, type: :boolean, default: true,
-                 desc: "Don't install Spring application preloader"
-
     class_option :authentication, type: :boolean, aliases: "-A", default: false,
                  desc: "Create User model and configure authentication"
 
     class_option :database, type: :string, aliases: "-d", default: "postgresql",
-                 desc: "Configure for selected database (options: #{DATABASES.join("/")})"
+                 desc: "Configure for selected database (options: #{DATABASES.join('/')})"
 
     class_option :github, type: :boolean, aliases: "-H", default: false,
                  desc: "Create a GitHub repository with the same name as the project"
@@ -29,7 +26,7 @@ module Arkenstone
       build :create_simple_form_files
       build :customize_application_layout
       build :set_up_database
-      build :config_travis_ci
+      build :config_ci
       build :create_factories_file
       build :create_partials_directory
       build :create_flashes_partial

@@ -37,8 +37,8 @@ module Arkenstone
                force: true
     end
 
-    def config_travis_ci
-      template ".travis.yml.erb", ".travis.yml"
+    def config_ci
+      copy_file "circle.yml", "circle.yml"
     end
 
     def create_partials_directory

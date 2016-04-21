@@ -1,5 +1,0 @@
-language: ruby
-rvm:
-  - 2.2.3
-before_install: gem install bundler -v 1.10.6
-before_script: git config --global user.email "travis@travis-ci.org" && git config --global user.name "Travis CI"

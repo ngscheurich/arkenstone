@@ -26,6 +26,7 @@ and just totally *get*, you know?
 
   spec.add_runtime_dependency "rails", "~>4.2", ">=4.2.0"
 
+  spec.add_development_dependency "autoprefixer"
   spec.add_development_dependency "bitters", "~> 0.1"
   spec.add_development_dependency "bundler", "~> 1.0"
   spec.add_development_dependency "codecov"

@@ -2,4 +2,6 @@ test:
   override:
     - bin/setup
     - RAILS_ENV=test bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
-  pre: git config --global user.email "test@circleci.com" && git config --global user.name "CircleCI"
+  pre:
+    - git config --global user.email "test@circleci.com"
+    - git config --global user.name "CircleCI"

@@ -1,3 +1,10 @@
+require "simplecov"
+SimpleCov.start
+if ENV["CI"] == "true"
+  require "codecov"
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
+
 Dir["./spec/support/**/*.rb"].each { |file| require file }
 
 RSpec.configure do |config|

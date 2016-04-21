@@ -5,8 +5,7 @@
 
 The Arkenstone is a Ruby on Rails application generator set up to use my
 preferred development configuration. It is heavily influenced by thoughtbot’s
-[Suspenders](https://github.com/thoughtbot/suspenders); I simply prefer to
-have something that I’ve pruned from infancy and just totally *get*, you know?
+[Suspenders](https://github.com/thoughtbot/suspenders).
 
 ## Installation
 

@@ -102,7 +102,7 @@ module Arkenstone
     end
 
     def create_vagrantfile
-      template "Vagrantfile.erb", "Vagrantfile"
+      copy_file "Vagrantfile", "Vagrantfile"
     end
 
     def add_ansible

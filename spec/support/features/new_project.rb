@@ -1,38 +1,22 @@
 module Features
-  APP_NAME = "arkenstone_test"
+  APP_NAME = "arkenstone_test".freeze
 
-  def app_name
-    APP_NAME
-  end
-  
-  def run_arkenstone(args = nil)
+  def run_arkenstone(options = nil)
     Dir.chdir(Dir.tmpdir) do
-      `#{arkenstone_bin} #{args} #{project_path}`
+      `#{arkenstone_bin} new #{APP_NAME} #{options}`
     end
   end
 
   def remove_dummy_app
-    FileUtils.rm_rf(project_path)
+    FileUtils.rm_rf(app_path)
   end
 
-  def project_path
+  def app_path
     File.join(Dir.tmpdir, APP_NAME)
   end
 
-  def models_path
-    "#{project_path}/app/models"
-  end
-
-  def controllers_path
-    "#{project_path}/app/controllers"
-  end
-
-  def config_path
-    "#{project_path}/config"
-  end
-
   def lib_path
-    "#{project_path}/lib"
+    "#{app_path}/lib"
   end
 
   def file_contents(file)
@@ -40,7 +24,7 @@ module Features
   end
 
   def project_file_exist?(file)
-    Dir.chdir(project_path) do
+    Dir.chdir(add_path) do
       File.exist?(file)
     end
   end

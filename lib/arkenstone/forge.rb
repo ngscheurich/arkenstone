@@ -4,22 +4,20 @@ module Arkenstone
   class Forge < Thor
     include Thor::Actions
 
-    BOXES = %w(ubuntu/trusty64).freeze
-    PROVIDERS = %w(virtualbox).freeze
     PROVISIONERS = %w(ansible).freeze
 
     option :box,         type: :string, aliases: "-B", default: "ubuntu/trusty64",
-                         desc: "Vagrant base box (options: #{BOXES.join('/')})"
+                         desc: "Vagrant base box"
 
     option :provider,    type: :string, aliases: "-P", default: "virtualbox",
-                         desc: "Vagrant VM provider (options: #{PROVIDERS.join('/')})"
+                         desc: "Vagrant VM provider"
 
     option :provisioner, type: :string, aliases: "-p", default: "ansible",
                          desc: "Vagrant provisioner (options: #{PROVISIONERS.join('/')})"
 
-    desc "new APP_PATH [options]", "Generate a new Rails environment at PATH"
-    def new(path)
-      @path = path
+    desc "new APP_PATH [options]", "Generate a new Rails environment at APP_PATH"
+    def new(app_path)
+      @app_path = app_path
       vagrant
       provisioner
     end
@@ -27,13 +25,13 @@ module Arkenstone
     private
 
     def vagrant
-      template "Vagrantfile.erb", "#{@path}/Vagrantfile"
+      template "Vagrantfile.erb", "#{@app_path}/Vagrantfile"
     end
 
     def provisioner
       case options[:provisioner]
       when "ansible"
-        directory "ansible", "#{@path}/provision/ansible"
+        directory "ansible", "#{@app_path}/provisioners/ansible"
       end
     end
   end

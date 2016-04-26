@@ -1,0 +1,26 @@
+---
+- name: Download Ruby {{ ruby_version }} source
+  get_url: url={{ ruby_src_url }} dest={{ ansible_env.HOME }}
+
+- name: Extract Ruby source
+  unarchive: src={{ ruby_src_file }}
+  args:
+    dest: "{{ ansible_env.HOME }}"
+    creates: "{{ ruby_src_dir }}"
+    copy: no
+
+- name: Configure Ruby
+  command: ./configure chdir={{ ruby_src_dir }}
+  args:
+    creates: "{{ ruby_src_dir}}/Makefile"
+
+- name: Build Ruby
+  command: make chdir={{ ruby_src_dir }}
+  args:
+    creates: "{{ ruby_src_dir}}/ruby"
+
+- name: Install Ruby
+  become: yes
+  command: make install chdir={{ ruby_src_dir }}
+  args:
+    creates: /usr/local/bin/ruby

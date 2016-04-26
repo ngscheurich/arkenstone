@@ -1,0 +1,10 @@
+---
+- name: Set up box for Ruby on Rails development
+  hosts: all
+
+  roles:
+    - base
+    - ruby
+    - postgresql
+    - rails
+    # - cleanup

@@ -1,0 +1,26 @@
+---
+- name: Update Apt cache
+  become: yes
+  apt:
+    update_cache: yes
+
+- name: Install Apt dependencies
+  become: yes
+  apt: name={{ item }} state=present
+  with_items:
+    - autoconf
+    - build-essential
+    - git
+    - gstreamer1.0-plugins-base
+    - gstreamer1.0-tools
+    - gstreamer1.0-x
+    - libpq-dev
+    - libpq5
+    - libqtwebkit-dev
+    - libreadline-dev
+    - libssl-dev
+    - nodejs
+    - python-dev
+    - python-pip
+    - ssl-cert
+    - zlib1g-dev

@@ -1,0 +1,5 @@
+---
+ruby_src_file: "{{ ansible_env.HOME }}/ruby-2.3.0.tar.gz"
+ruby_src_dir: "{{ ansible_env.HOME }}/ruby-2.3.0"
+ruby_src_url: http://ftp.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.gz
+ruby_version: 2.3.0

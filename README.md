@@ -41,7 +41,7 @@ When your new environment is complete, SSH into it with `vagrant ssh`,
     $ bin/rails server -b 0.0.0.0
     
 You should now be able to visit your Rails app on your host machine at
-http://localhost:3001. Voilà!
+[http://localhost:3001](http://localhost:3001). Voilà!
 
 ---
 

@@ -6,12 +6,25 @@
   gem: name=bundler state=present
 
 - name: Generate application
-  command: suspenders . chdir={{ app_path }} creates={{ app_path }}/Gemfile
+  command: env PATH={{ gem_bin_path }}:$PATH suspenders .
+  args:
+    chdir: "{{ app_path }}"
+    creates: "{{ app_path }}/Gemfile"
+
+- name: Install application gems
+  command: env PATH={{ gem_bin_path }}:$PATH bundle install
+  args:
+    chdir: "{{ app_path }}"
 
 - name: Configure Simple Form
-  command: env PATH={{ gem_bin_path }}:$PATH rails g simple_form:install chdir={{ app_path }}
+  command: env PATH={{ gem_bin_path }}:$PATH rails g simple_form:install
+  args:
+    chdir: "{{ app_path }}"
 
 - name: Create application database
+  command: env PATH={{ gem_bin_path }}:$PATH rake db:create chdir={{ app_path }}
+    
+- name: Migrate application database
   command: env PATH={{ gem_bin_path }}:$PATH rake db:migrate chdir={{ app_path }}
 
 - name: Set up application

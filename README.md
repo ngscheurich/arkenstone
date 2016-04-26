@@ -35,10 +35,11 @@ initial work for you like:
 - Installing and setting up PostgreSQL
 - Generating a new Rails app with [Suspenders](https://github.com/thoughtbot/suspenders)
 
-When your new environment is complete, SSH into it with `vagrant ssh`,
-`cd` to the /vagrant directory and fire up the Rails server with:
+When your new environment is complete, SSH into it and fire up
+the Rails server:
 
-    $ bin/rails server -b 0.0.0.0
+    $ vagrant ssh
+    $ cd /vagrant && bin/rails server -b 0.0.0.0
     
 You should now be able to visit your Rails app on your host machine at
 [http://localhost:3001](http://localhost:3001). Voilà!

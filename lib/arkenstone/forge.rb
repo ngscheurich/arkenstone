@@ -9,6 +9,9 @@ module Arkenstone
     option :box,         type: :string, aliases: "-B", default: "ubuntu/trusty64",
                          desc: "Vagrant base box"
 
+    option :port,        type: :numeric, default: "3001",
+                         desc: "Port on the host to forward Rails server to"
+
     option :provider,    type: :string, aliases: "-P", default: "virtualbox",
                          desc: "Vagrant VM provider"
 

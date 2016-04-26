@@ -7,15 +7,7 @@ $LOAD_PATH << source_path
 
 require "arkenstone"
 
-module Arkenstone
-  class AppBuilder < Rails::AppBuilder
-    GEM_PATH = (Pathname.new(__FILE__).dirname + "..").expand_path
-  end
-end
-
 templates_relative = File.join("..", "lib/arkenstone/templates")
 templates_root = File.expand_path(templates_relative, File.dirname(__FILE__))
-Arkenstone::AppGenerator.source_root templates_root
-Arkenstone::AppGenerator.source_paths << Rails::Generators::AppGenerator.source_root
-Arkenstone::AppGenerator.source_paths << templates_root
-Arkenstone::AppGenerator.start
+Arkenstone::Forge.source_root templates_root
+Arkenstone::Forge.start(ARGV)

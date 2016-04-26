@@ -10,12 +10,10 @@ Gem::Specification.new do |spec|
   spec.author        = "Nicholas Scheurich"
   spec.email         = "nick@scheurich.me"
 
-  spec.summary       = "A Rails bootstrapper"
-  spec.description   = <<-EOS
-The Arkenstone is a Ruby on Rails application generator set up to use my
-preferred development configuration. It is heavily influenced by thoughtbot’s
-Suspenders.
-  EOS
+  spec.summary       = "A Rails dev environment generator"
+  spec.description   = <<-DESC
+The Arkenstone is a Ruby on Rails development environment generator.
+DESC
   spec.homepage      = "https://github.com/ngscheurich/arkenstone"
 
   spec.files         = `git ls-files`.split("\n")
@@ -23,12 +21,9 @@ Suspenders.
   spec.executables   = ["arkenstone"]
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bitters", "~> 0.1"
-  spec.add_development_dependency "bundler", "~> 1.0"
-  spec.add_development_dependency "codecov"
   spec.add_development_dependency "pry", "~> 0.1"
-  spec.add_development_dependency "rails", "~>4.2", ">=4.2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.4"
   spec.add_development_dependency "rspec_junit_formatter", "0.2.2"
+  spec.add_development_dependency "thor"
 end

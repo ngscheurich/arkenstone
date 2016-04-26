@@ -1,6 +1,5 @@
 require "arkenstone/version"
-require "arkenstone/generators/app_generator"
-require "arkenstone/app_builder"
+require "arkenstone/forge"
 
 begin
   require "pry"

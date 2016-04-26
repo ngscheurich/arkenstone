@@ -1,10 +1,10 @@
 # -*- mode: ruby -*-
 
 Vagrant.configure(2) do |config|
-  config.vm.provider "<%= options[:provider] %>"
-
   config.vm.box = "<%= options[:box] %>"
-
+  config.vm.provider "<%= options[:provider] %>"
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  
   <% if options[:provisioner] == "ansible" %>
     config.vm.provision "ansible" do |ansible|
       ansible.playbook = "provision/ansible/site.yml"

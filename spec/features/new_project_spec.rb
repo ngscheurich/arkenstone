@@ -12,6 +12,13 @@ RSpec.describe "Generating a new project" do
     expect(File).to exist(vagrantfile)
   end
 
+  it "forwards the default Rails server port" do
+    vagrantfile = File.read("#{app_path}/Vagrantfile")
+    config_string = 'config.vm.network "forwarded_port", guest: 3000, host: 3000'
+
+    expect(vagrantfile).to include(config_string)
+  end
+
   it "creates the provisioners directory" do
     provisioners_dir = "#{app_path}/provisioners/ansible"
 

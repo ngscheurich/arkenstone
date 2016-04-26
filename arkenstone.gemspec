@@ -10,9 +10,10 @@ Gem::Specification.new do |spec|
   spec.author        = "Nicholas Scheurich"
   spec.email         = "nick@scheurich.me"
 
-  spec.summary       = "A Rails dev environment generator"
+  spec.summary       = "A Rails development environment generator"
   spec.description   = <<-DESC
 The Arkenstone is a Ruby on Rails development environment generator.
+Its goal is to provide an easy way to spin up a new Vagrant box provisioned for Rails development.
 DESC
   spec.homepage      = "https://github.com/ngscheurich/arkenstone"
 

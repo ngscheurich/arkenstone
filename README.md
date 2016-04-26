@@ -2,6 +2,7 @@
 
 [![Build Status](https://circleci.com/gh/ngscheurich/arkenstone.svg?&style=shield)](https://circleci.com/gh/ngscheurich/arkenstone)
 [![Code Coverage](https://codecov.io/github/ngscheurich/arkenstone/coverage.svg?branch=master)](https://codecov.io/github/ngscheurich/arkenstone?branch=master)
+[![Gem Version](https://badge.fury.io/rb/arkenstone.svg)](https://badge.fury.io/rb/arkenstone)
 
 The Arkenstone is a Ruby on Rails development environment generator. Its
 goal is to provide an easy way to spin up a new Vagrant box provisioned

@@ -4,7 +4,7 @@
   apt:
     update_cache: yes
 
-- name: Install Apt dependencies
+- name: Install system dependencies
   become: yes
   apt: name={{ item }} state=present
   with_items:

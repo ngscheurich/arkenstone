@@ -1,8 +1,0 @@
----
-- name: Send Slack completion message
-    slack:
-      token: lookup("env", "SLACK_ANSIBLE_TOKEN")
-      msg: "Your Vagrant Rails box is good to go!"
-      channel: "#devops"
-      username: "Ansible"
-      color: good

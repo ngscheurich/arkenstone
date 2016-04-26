@@ -1,4 +1,4 @@
-# Arkenstone
+# The Arkenstone
 
 [![Build Status](https://circleci.com/gh/ngscheurich/arkenstone.svg?&style=shield)](https://circleci.com/gh/ngscheurich/arkenstone)
 [![Code Coverage](https://codecov.io/github/ngscheurich/arkenstone/coverage.svg?branch=master)](https://codecov.io/github/ngscheurich/arkenstone?branch=master)
@@ -41,7 +41,7 @@ When your new environment is complete, SSH into it with `vagrant ssh`,
     $ bin/rails server -b 0.0.0.0
     
 You should now be able to visit your Rails app on your host machine at
-the http://localhost:3000. Voilà!
+the http://localhost:3001. Voilà!
 
 ---
 

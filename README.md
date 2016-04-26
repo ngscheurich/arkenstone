@@ -7,8 +7,6 @@ The Arkenstone is a Ruby on Rails development environment generator. Its
 goal is to provide an easy way to spin up a new Vagrant box provisioned
 for Rails development.
 
-<iframe src="//giphy.com/embed/HfB1VJRaL5Ctq" width="100%" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sparkle-hexagon-gem-HfB1VJRaL5Ctq">via GIPHY</a></p>
-
 ## Installation
 
     $ gem install arkenstone

@@ -1,11 +1,11 @@
 ---
 - name: Download Ruby {{ ruby_version }} source
-  get_url: url={{ ruby_src_url }} dest={{ ansible_env.HOME }}
+  get_url: url={{ ruby_src_url }} dest={{ src_dir }}
 
 - name: Extract Ruby source
   unarchive: src={{ ruby_src_file }}
   args:
-    dest: "{{ ansible_env.HOME }}"
+    dest: "{{ src_dir }}"
     creates: "{{ ruby_src_dir }}"
     copy: no
 

@@ -39,7 +39,7 @@ initial work for you like:
 When your new environment is complete, send over an SSH command to fire
 up the Rails server:
 
-    $ vagrant ssh -c '/vagrant && bin/rails server -b 0.0.0.0'
+    $ vagrant ssh -c 'cd /vagrant && bin/rails server -b 0.0.0.0'
     
 You should now be able to visit your Rails app on your host machine at
 [http://localhost:3001](http://localhost:3001). Voilà!

@@ -2,6 +2,7 @@
 
 [![Build Status](https://circleci.com/gh/ngscheurich/arkenstone.svg?&style=shield)](https://circleci.com/gh/ngscheurich/arkenstone)
 [![Code Coverage](https://codecov.io/github/ngscheurich/arkenstone/coverage.svg?branch=master)](https://codecov.io/github/ngscheurich/arkenstone?branch=master)
+[![Gem Version](https://badge.fury.io/rb/arkenstone.svg)](https://badge.fury.io/rb/arkenstone)
 
 The Arkenstone is a Ruby on Rails development environment generator. Its
 goal is to provide an easy way to spin up a new Vagrant box provisioned
@@ -35,14 +36,15 @@ initial work for you like:
 - Installing and setting up PostgreSQL
 - Generating a new Rails app with [Suspenders](https://github.com/thoughtbot/suspenders)
 
-When your new environment is complete, SSH into it and fire up
-the Rails server:
+When your new environment is complete, send over an SSH command to fire
+up the Rails server:
 
-    $ vagrant ssh
-    $ cd /vagrant && bin/rails server -b 0.0.0.0
+    $ vagrant ssh -c '/vagrant/bin/rails server -b 0.0.0.0'
     
 You should now be able to visit your Rails app on your host machine at
-[http://localhost:3001](http://localhost:3001). Voilà!
+[http://localhost:3001](http://localhost:3001).
+
+*Voilà!*
 
 ---
 

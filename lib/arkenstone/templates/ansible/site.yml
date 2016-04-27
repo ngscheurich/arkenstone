@@ -4,6 +4,7 @@
 
   roles:
     - base
+    - shell
     - ruby
     - postgresql
     - rails

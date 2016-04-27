@@ -1,4 +1,11 @@
 ---
+- name: Make src directory
+  file: path={{ src_dir }} state=directory
+
+- name: Add fish PPA repository
+  become: yes
+  command: apt-add-repository -y ppa:fish-shell/release-2
+
 - name: Update Apt cache
   become: yes
   apt:
@@ -10,6 +17,7 @@
   with_items:
     - autoconf
     - build-essential
+    - fish
     - git
     - gstreamer1.0-plugins-base
     - gstreamer1.0-tools

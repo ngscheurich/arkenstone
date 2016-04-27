@@ -1,0 +1,4 @@
+---
+- name: Set login shell to fish
+  become: yes
+  command: usermod -s /usr/bin/fish vagrant

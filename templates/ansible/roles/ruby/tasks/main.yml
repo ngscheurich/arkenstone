@@ -1,26 +1,26 @@
 ---
 - name: Download Ruby {{ ruby_version }} source
-  get_url: url={{ ruby_src_url }} dest={{ src_dir }}
+  get_url: url={{ ruby_src_url }} dest={{ src_path }}
 
 - name: Extract Ruby source
   unarchive: src={{ ruby_src_file }}
   args:
-    dest: "{{ src_dir }}"
-    creates: "{{ ruby_src_dir }}"
+    dest: "{{ src_path }}"
+    creates: "{{ ruby_src_path }}"
     copy: no
 
 - name: Configure Ruby
-  command: ./configure chdir={{ ruby_src_dir }}
+  command: ./configure chdir={{ ruby_src_path }}
   args:
-    creates: "{{ ruby_src_dir}}/Makefile"
+    creates: "{{ ruby_src_path}}/Makefile"
 
 - name: Build Ruby
-  command: make chdir={{ ruby_src_dir }}
+  command: make chdir={{ ruby_src_path }}
   args:
-    creates: "{{ ruby_src_dir}}/ruby"
+    creates: "{{ ruby_src_path}}/ruby"
 
 - name: Install Ruby
   become: yes
-  command: make install chdir={{ ruby_src_dir }}
+  command: make install chdir={{ ruby_src_path }}
   args:
     creates: /usr/local/bin/ruby

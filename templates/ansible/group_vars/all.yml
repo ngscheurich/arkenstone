@@ -1,2 +1,2 @@
 ---
-src_dir: "{{ ansible_env.HOME }}/src"
+src_path: "{{ ansible_env.HOME }}/src"

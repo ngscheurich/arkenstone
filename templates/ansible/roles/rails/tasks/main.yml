@@ -2,7 +2,7 @@
 - name: Install Suspenders
   gem: name=suspenders
   args:
-    respository: https://github.com/ngscheurich/suspenders.git
+    repository: https://github.com/ngscheurich/suspenders.git
     state: present
 
 - name: Install Bundler

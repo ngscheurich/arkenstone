@@ -1,6 +1,6 @@
 ---
-- name: Install Suspenders
-  gem: name=suspenders state=present
+- name: Install Suspenders (Hosenträger)
+  gem: name=hosentrager state=present
 
 - name: Install Bundler
   gem: name=bundler state=present

@@ -7,7 +7,7 @@ $LOAD_PATH << source_path
 
 require "arkenstone"
 
-templates_relative = File.join("..", "lib/arkenstone/templates")
+templates_relative = File.join("..", "templates")
 templates_root = File.expand_path(templates_relative, File.dirname(__FILE__))
 Arkenstone::Forge.source_root templates_root
 Arkenstone::Forge.start(ARGV)

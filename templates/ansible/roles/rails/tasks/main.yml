@@ -30,10 +30,10 @@
   command: "{{ gem_bin_path }}/rails g simple_form:install chdir={{ app_path }}"
 
 - name: Create application database
-  command: "{{ gem_bin_path }}/rake db:create chdir={{ app_path }}"
+  command: rake db:create chdir={{ app_path }}
     
 - name: Migrate application database
-  command: "{{ gem_bin_path }}/rake db:migrate chdir={{ app_path }}"
+  command: rake db:migrate chdir={{ app_path }}
 
 - name: Set up application
   command: env PATH={{ gem_bin_path }}:$PATH ./bin/setup chdir={{ app_path }}

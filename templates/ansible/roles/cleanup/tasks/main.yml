@@ -1,0 +1,10 @@
+---
+- name: Send Slack notification
+  local_action: 
+    module: slack
+    token: "{{ slack_token }}"
+    msg: >
+      Success: {{ app_name }}\n
+      The Arkenstone has finished building your environment. Happy Hacking!
+    color: good
+  when: slack_token != ""

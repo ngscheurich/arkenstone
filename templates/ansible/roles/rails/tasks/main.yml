@@ -1,34 +1,39 @@
 ---
-- name: Install Suspenders
-  gem: name=suspenders
+- name: Download Suspenders
+  git: repo=https://github.com/ngscheurich/suspenders.git dest={{ src_path }}/suspenders
+
+- name: Build Suspenders
+  command: gem build suspenders.gemspec
   args:
-    repository: https://github.com/ngscheurich/suspenders.git
-    state: present
+    chdir: "{{src_path }}/suspenders"
+    creates: "{{ src_path }}/suspenders/suspenders-*.gem"
+
+- name: Install Suspenders
+  command: gem install --user-install suspenders-*.gem
+  args:
+    chdir: "{{src_path }}/suspenders"
+    creates: "{{ gem_bin_path }}/suspenders"
 
 - name: Install Bundler
   gem: name=bundler state=present
 
 - name: Generate application
-  command: env PATH={{ gem_bin_path }}:$PATH suspenders .
+  command: "{{ gem_bin_path }}/suspenders ."
   args:
     chdir: "{{ app_path }}"
     creates: "{{ app_path }}/Gemfile"
 
 - name: Install application gems
-  command: env PATH={{ gem_bin_path }}:$PATH bundle install
-  args:
-    chdir: "{{ app_path }}"
+  command: "{{ gem_bin_path }}/bundle install chdir={{ app_path }}"
 
 - name: Configure Simple Form
-  command: env PATH={{ gem_bin_path }}:$PATH rails g simple_form:install
-  args:
-    chdir: "{{ app_path }}"
+  command: "{{ gem_bin_path }}/rails g simple_form:install chdir={{ app_path }}"
 
 - name: Create application database
-  command: env PATH={{ gem_bin_path }}:$PATH rake db:create chdir={{ app_path }}
+  command: "{{ gem_bin_path }}/rake db:create chdir={{ app_path }}"
     
 - name: Migrate application database
-  command: env PATH={{ gem_bin_path }}:$PATH rake db:migrate chdir={{ app_path }}
+  command: "{{ gem_bin_path }}/rake db:migrate chdir={{ app_path }}"
 
 - name: Set up application
-  command: env PATH={{ gem_bin_path }}:$PATH bin/setup chdir={{ app_path }}
+  command: env PATH={{ gem_bin_path }}:$PATH ./bin/setup chdir={{ app_path }}

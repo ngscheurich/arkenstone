@@ -1,6 +1,6 @@
 ---
 - name: Make src directory
-  file: path={{ src_dir }} state=directory
+  file: path={{ src_path }} state=directory
 
 - name: Add fish PPA repository
   become: yes

@@ -34,7 +34,7 @@ module Arkenstone
     def provisioner
       case options[:provisioner]
       when "ansible"
-        directory "ansible", "#{@app_path}/provisioners/ansible"
+        directory "ansible", "#{@app_path}/prov/ansible"
       end
     end
   end

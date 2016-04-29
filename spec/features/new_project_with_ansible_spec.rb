@@ -13,7 +13,7 @@ RSpec.describe "Generating a new project with the Ansible provisioner" do
   end
 
   it "copies the ansible directory" do
-    ansible_dir = "#{app_path}/provisioners/ansible"
+    ansible_dir = "#{app_path}/prov/ansible"
 
     expect(File).to exist(ansible_dir)
   end

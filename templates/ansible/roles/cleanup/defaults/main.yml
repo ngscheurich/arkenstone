@@ -1,5 +1,4 @@
 ---
 slack_token: "{{ lookup('env', 'SLACK_TOKEN') }}"
-slack_msg: |
-  Success: {{ app_name }}
+slack_msg: >
   The Arkenstone has finished building your environment. Happy Hacking!

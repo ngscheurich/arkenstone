@@ -27,8 +27,14 @@ and run:
 
     $ vagrant up
 
-Now go grab a cup of coffee or a glass of Scotch—this part might take a
-while. The Arkenstone is busy building a new Vagrant box and doing some
+Now go grab a cup of coffee or a glass of Scotch or two—this part might take a
+while. If The Arkenstone detects a `SLACK_TOKEN` environment variable, it will
+send a message to the associated [Slack](https://slack.com/) channel when its
+done. For instance:
+
+    $ env SLACK_TOKEN=Your/Token/1234 vagrant up
+
+The Arkenstone is busy building a new Vagrant box and doing some
 initial work for you like:
 
 - Installing system software depencies
@@ -46,6 +52,8 @@ You should now be able to visit your Rails app on your host machine at
 
 *Voilà!*
 
+[1] 
+    
 ---
 
 [(ↄ) Copyleft](http://www.gnu.org/licenses/copyleft.en.html)

@@ -52,8 +52,6 @@ You should now be able to visit the new Rails app on your host machine at
 
 *Voilà!*
 
-[1] 
-    
 ---
 
 [(ↄ) Copyleft](http://www.gnu.org/licenses/copyleft.en.html)

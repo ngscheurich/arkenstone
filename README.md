@@ -54,6 +54,4 @@ You should now be able to visit the new Rails app on your host machine at
 
 ---
 
-[(ↄ) Copyleft](http://www.gnu.org/licenses/copyleft.en.html)
-Nicholas Gunther Scheurich under the
-[GNU General Public License](http://www.gnu.org/licenses/gpl.txt)
+Copyright (c) 2016 Nicholas Scheurich under the [MIT License (MIT)](https://opensource.org/licenses/MIT)

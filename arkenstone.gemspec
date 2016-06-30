@@ -6,7 +6,7 @@ require "arkenstone/version"
 Gem::Specification.new do |spec|
   spec.name          = "arkenstone"
   spec.version       = Arkenstone::VERSION
-  spec.license       = "GPL-3.0"
+  spec.license       = "MIT"
   spec.author        = "Nicholas Scheurich"
   spec.email         = "nick@scheurich.me"
 

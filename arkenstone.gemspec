@@ -4,6 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "arkenstone/version"
 
 Gem::Specification.new do |spec|
+  spec.required_ruby_version = ">= #{Arkenstone::RUBY_VERSION}"
+
   spec.name          = "arkenstone"
   spec.version       = Arkenstone::VERSION
   spec.license       = "MIT"
